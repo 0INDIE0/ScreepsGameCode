@@ -21,12 +21,13 @@ function getMyRooms() {
         
         myRooms.add(Game.spawns[spawnName].room);
     }
-    console.log(myRooms.size);
     return myRooms
 }
 
 /** @param {Room} room */
 function setRoomCreepsMaxCount(room) {
+
+    console.log(room.name);
 
     if (mainModule.CREEPS_MAX_COUNT in room.memory) {
         return;
@@ -38,6 +39,7 @@ function setRoomCreepsMaxCount(room) {
         [mainModule.ROLE_UPGRADER]: 2,
     };
 
+    console.log(room.memory[mainModule.CREEPS_MAX_COUNT]);
 }
 
 /** @param {Room} room - Комната */

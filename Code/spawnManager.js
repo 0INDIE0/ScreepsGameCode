@@ -23,8 +23,6 @@ function getBodyForRole(role) {
     }
 }
 
-
-
 function createCreeps() {
 
     for (const spawnName in Game.spawns) {
