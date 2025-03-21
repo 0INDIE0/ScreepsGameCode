@@ -1,6 +1,6 @@
 let constants = require("constants");
 
-module.exports = { run: Main };
+module.exports = { run: main };
 
 function main() {
     
