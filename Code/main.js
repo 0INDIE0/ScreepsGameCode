@@ -2,8 +2,46 @@
 
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
+var spawnsManager = require('spawnsManager');
+var creepManager = require("creepManager");
 
 module.exports.loop = function () {
+
+ // Перебираем все комнаты, принадлежащие вам
+    for (const roomName in Game.rooms) {
+        
+        const room = Game.rooms[roomName];
+
+        // Проверяем, что комната принадлежит вам
+        if (room.controller && room.controller.my) {
+            // Целевые значения для каждой роли
+            const targetCounts = {
+                harvester: 4,
+                builder: 2,
+                upgrader: 2,
+                defender: 1,
+            };
+
+            // Управляем крипами в текущей комнате
+            spawnsManager.run(room, targetCounts);
+        }
+    }
+
+    for (const name in Game.creeps) {
+        const creep = Game.creeps[name];
+        if (creep.memory.role === 'harvester') {
+            roleHarvester.run(creep);
+        }
+    }
+
+}
+
+
+
+
+
+
+
 
     // for(var name in Memory.creeps) {
     //     if(!Game.creeps[name]) {
@@ -40,4 +78,3 @@ module.exports.loop = function () {
     //         roleUpgrader.run(creep);
     //     }
     // }
-}
