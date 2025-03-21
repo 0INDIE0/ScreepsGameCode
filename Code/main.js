@@ -1,11 +1,16 @@
 "use strict";
 
-let constants = require("constants");
 let roleHarvester = require('roleHarvester');
 let roleUpgrader = require('roleUpgrader');
 let spawnManager = require('spawnManager');
 let creepManager = require("creepManager");
 let roomManager = require("roomManager");
+
+const ROLE_HARVESTER = "harvester";
+const ROLE_BUILDER = "builder";
+const ROLE_UPGRADER = "upgrader";
+const CREEPS_MAX_COUNT = "creepsMaxCount";
+const CREEPS_COUNT = "creepsCounts";
 
 module.exports.loop = function () {
     
