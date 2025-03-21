@@ -2,8 +2,8 @@ module.exports = { run: Main };
 
 function Main() {
 
-    const myRooms = getMyRooms()
-
+    const myRooms = getMyRooms();
+    console.log(myRooms.size);
     for (const roomName in myRooms) {
         console.log(roomName);
 
