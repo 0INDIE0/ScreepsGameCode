@@ -1,6 +1,8 @@
+let mainModule = require("main");
+
 module.exports = { run: Main };
 
-function Main() {
+function main() {
     
     if (Game.time % 15) {
         createCreeps();
@@ -33,8 +35,8 @@ function createCreeps() {
             continue;
         }
 
-        const maxCount = spawn.room.memory[CREEPS_MAX_COUNT];
-        const Count = spawn.room.memory[CREEPS_COUNT];
+        const maxCount = spawn.room.memory[mainModule.CREEPS_MAX_COUNT];
+        const Count = spawn.room.memory[mainModule.CREEPS_COUNT];
 
         let needCreate;
 
