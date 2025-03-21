@@ -14,7 +14,7 @@ function Main() {
 /** @return {Set<Room>}  */
 function getMyRooms() {
 
-    const myRooms = new Set();
+    let myRooms = new Set();
 
     for (let spawnName in Game.spawns) {
         
