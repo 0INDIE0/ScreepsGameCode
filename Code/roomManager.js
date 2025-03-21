@@ -5,6 +5,7 @@ function Main() {
     const myRooms = getMyRooms()
 
     for (const roomName in myRooms) {
+        console.log(roomName);
 
         const room = Game.rooms[roomName];
         setRoomCreepsMaxCount(room);
