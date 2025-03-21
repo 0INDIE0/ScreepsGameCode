@@ -20,7 +20,7 @@ function getMyRooms() {
         
         myRooms.add(Game.spawns[spawnName].room.name);
     }
-    
+    console.log(myRooms.size);
     return myRooms
 }
 
