@@ -20,7 +20,7 @@ function getMyRooms() {
         
         console.log(JSON.stringify(Game.spawns[spawnName].room));
         myRooms.add(Game.spawns[spawnName].room);
-        console.log(JSON.stringify(myRooms));
+        console.log(myRooms[0]);
     }
     
     console.log(JSON.stringify(myRooms));
