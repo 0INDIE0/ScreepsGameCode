@@ -20,7 +20,7 @@ function getMyRooms() {
 
     for (let spawnName in Game.spawns) {
         
-        myRooms.add(Game.spawns[spawnName].room);
+        myRooms.add(Game.spawns[spawnName].room.name);
     }
     return myRooms
 }
