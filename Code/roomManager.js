@@ -8,6 +8,7 @@ function Main() {
 
         const room = Game.rooms[roomName];
         setRoomCreepsMaxCount(room);
+        setCreepsCount(room);
     }
 }
 
@@ -18,7 +19,7 @@ function getMyRooms() {
 
     for (let spawnName in Game.spawns) {
         
-        myRooms.add(Game.spawns[spawnName].room.name);
+        myRooms.add(Game.spawns[spawnName].room);
     }
     console.log(myRooms.size);
     return myRooms
@@ -37,4 +38,16 @@ function setRoomCreepsMaxCount(room) {
         [ROLE_UPGRADER]: 2,
     };
 
+}
+
+/** @param {Room} room - Комната */
+function setCreepsCount(room) {
+
+    roomCreeps = _.find(Game.creeps, (creep) => creep.memory.owner === room.name);
+
+    room.memory[CREEPS_COUNT] = {
+        [ROLE_HARVESTER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_HARVESTER),
+        [ROLE_BUILDER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_BUILDER),
+        [ROLE_UPGRADER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_UPGRADER),
+    }
 }

@@ -1,10 +1,8 @@
 module.exports = { run: Main };
 
 function Main() {
-
-    if (Game.time % 50) {
-        setCreepsCount();
-    } else if (Game.time % 15) {
+    
+    if (Game.time % 15) {
         createCreeps();
     }
 }
@@ -23,17 +21,7 @@ function getBodyForRole(role) {
     }
 }
 
-/** @param {Room} myRoom - Комната */
-function setCreepsCount(myRoom) {
 
-    roomCreeps = _.find(Game.creeps, (creep) => creep.memory.owner === myRoom.name);
-
-    myRoom.memory[CREEPS_COUNT] = {
-        [ROLE_HARVESTER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_HARVESTER),
-        [ROLE_BUILDER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_BUILDER),
-        [ROLE_UPGRADER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_UPGRADER),
-    }
-}
 
 function createCreeps() {
 
