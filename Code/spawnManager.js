@@ -1,4 +1,4 @@
-let mainModule = require("main");
+let constants = require("constants");
 
 module.exports = { run: Main };
 
@@ -35,8 +35,8 @@ function createCreeps() {
             continue;
         }
 
-        const maxCount = spawn.room.memory[mainModule.CREEPS_MAX_COUNT];
-        const Count = spawn.room.memory[mainModule.CREEPS_COUNT];
+        const maxCount = spawn.room.memory[constants.CREEPS_MAX_COUNT];
+        const Count = spawn.room.memory[constants.CREEPS_COUNT];
 
         let needCreate;
 
