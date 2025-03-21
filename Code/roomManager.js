@@ -17,6 +17,8 @@ function getMyRooms() {
     const myRooms = new Set();
 
     for (let spawnName in Game.spawns) {
+        
+        console.log(JSON.stringify(Game.spawns[spawnName]));
         myRooms.add(Game.spawns[spawnName].room);
     }
     

@@ -1,5 +1,6 @@
 "use strict";
 
+let constants = require("constants");
 let roleHarvester = require('roleHarvester');
 let roleUpgrader = require('roleUpgrader');
 let spawnManager = require('spawnManager');
