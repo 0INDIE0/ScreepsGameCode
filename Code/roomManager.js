@@ -4,11 +4,11 @@ function Main() {
 
     const myRooms = getMyRooms()
 
-    for (const myRoom in myRooms) {
+    for (const roomName in myRooms) {
 
-        setRoomCreepsMaxCount(myRoom)
+        const room = myRooms[roomName];
+        setRoomCreepsMaxCount(room);
     }
-
 }
 
 /** @return {Set<Room>}  */
@@ -19,18 +19,19 @@ function getMyRooms() {
     for (let spawnName in Game.spawns) {
         myRooms.add(Game.spawns[spawnName].room);
     }
-
+    
+    console.log(JSON.stringify(myRooms));
     return myRooms
 }
 
-/** @param {Room} myRoom */
-function setRoomCreepsMaxCount(myRoom) {
+/** @param {Room} room */
+function setRoomCreepsMaxCount(room) {
 
-    if (CREEPS_MAX_COUNT in myRoom.memory) {
+    if (CREEPS_MAX_COUNT in room.memory) {
         return;
     }
 
-    myRoom.memory[CREEPS_MAX_COUNT] = {
+    room.memory[CREEPS_MAX_COUNT] = {
         [ROLE_HARVESTER]: 4,
         [ROLE_BUILDER]: 2,
         [ROLE_UPGRADER]: 2,
