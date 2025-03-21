@@ -6,7 +6,7 @@ function Main() {
 
     for (const roomName in myRooms) {
 
-        const room = myRooms[roomName];
+        const room = Game.rooms[roomName];
         setRoomCreepsMaxCount(room);
     }
 }
@@ -14,16 +14,13 @@ function Main() {
 /** @return {Set<Room>}  */
 function getMyRooms() {
 
-    const myRooms = new Set();
+    const myRooms = [];
 
     for (let spawnName in Game.spawns) {
         
-        console.log(JSON.stringify(Game.spawns[spawnName].room));
-        myRooms.add(Game.spawns[spawnName].room);
-        console.log(myRooms[0]);
+        myRooms.add(Game.spawns[spawnName].room.name);
     }
     
-    console.log(JSON.stringify(myRooms));
     return myRooms
 }
 
