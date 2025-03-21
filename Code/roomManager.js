@@ -14,12 +14,13 @@ function Main() {
 /** @return {Set<Room>}  */
 function getMyRooms() {
 
-    let myRooms = new Set();
+    const myRooms = new Set();
 
     for (let spawnName in Game.spawns) {
         
-        console.log(JSON.stringify(Game.spawns[spawnName]));
+        console.log(JSON.stringify(Game.spawns[spawnName].room));
         myRooms.add(Game.spawns[spawnName].room);
+        console.log(JSON.stringify(myRooms));
     }
     
     console.log(JSON.stringify(myRooms));
