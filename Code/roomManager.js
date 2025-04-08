@@ -1,4 +1,4 @@
-const { ROLE_HARVESTER, ROLE_BUILDER, ROLE_UPGRADER, CREEPS_MAX_COUNT} = require('constants');
+const { ROLE_HARVESTER, ROLE_BUILDER, ROLE_UPGRADER, CREEPS_MAX_COUNT, CREEPS_COUNT} = require('constants');
 
 module.exports = { run: roomManager};
 
