@@ -1,3 +1,5 @@
+const { ROLE_HARVESTER, ROLE_BUILDER, ROLE_UPGRADER, CREEPS_MAX_COUNT} = require('constants');
+
 module.exports = { run: roomManager};
 
 function roomManager() {
@@ -31,14 +33,14 @@ function getMyRooms() {
 /** @param {Room} room */
 function setRoomCreepsMaxCount(room) {
 
-    if (mainModule.CREEPS_MAX_COUNT in room.memory) {
+    if (CREEPS_MAX_COUNT in room.memory) {
         return;
     }
 
-    room.memory[mainModule.CREEPS_MAX_COUNT] = {
-        [mainModule.ROLE_HARVESTER]: 4,
-        [mainModule.ROLE_BUILDER]: 2,
-        [mainModule.ROLE_UPGRADER]: 2,
+    room.memory[CREEPS_MAX_COUNT] = {
+        [ROLE_HARVESTER]: 4,
+        [ROLE_BUILDER]: 2,
+        [ROLE_UPGRADER]: 2,
     };
 }
 
@@ -47,9 +49,9 @@ function setCreepsCount(room) {
 
     roomCreeps = _.find(Game.creeps, (creep) => creep.memory.owner === room.name);
 
-    room.memory[mainModule.CREEPS_COUNT] = {
-        [mainModule.ROLE_HARVESTER]: _.sum(roomCreeps, (creep) => creep.memory.role === mainModule.ROLE_HARVESTER),
-        [mainModule.ROLE_BUILDER]: _.sum(roomCreeps, (creep) => creep.memory.role === mainModule.ROLE_BUILDER),
-        [mainModule.ROLE_UPGRADER]: _.sum(roomCreeps, (creep) => creep.memory.role === mainModule.ROLE_UPGRADER),
+    room.memory[CREEPS_COUNT] = {
+        [ROLE_HARVESTER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_HARVESTER),
+        [ROLE_BUILDER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_BUILDER),
+        [ROLE_UPGRADER]: _.sum(roomCreeps, (creep) => creep.memory.role === ROLE_UPGRADER),
     }
 }
