@@ -13,8 +13,7 @@ module.exports.loop = function () {
         spawnManager.run();
     }
     catch (error) {
-        console.log(JSON.stringify(error));
-        console.log(error.name);
+        console.log(`Error: ${error.name} \nMessage: ${error.message} \n Stack: \n${error.stack}`);
     }
 }
 
