@@ -33,8 +33,8 @@ function createCreeps() {
             continue;
         }
 
-        const maxCount = spawn.room.memory[constants.CREEPS_MAX_COUNT];
-        const Count = spawn.room.memory[constants.CREEPS_COUNT];
+        const maxCount = spawn.room.memory[CREEPS_MAX_COUNT];
+        const Count = spawn.room.memory[CREEPS_COUNT];
 
         let needCreate;
 
@@ -67,7 +67,7 @@ function createCreeps() {
 function getCreepName(room, roleName) {
 
     let creepName = room + roleName;
-    const maxCount = spawn.room.memory[constants.CREEPS_MAX_COUNT];
+    const maxCount = spawn.room.memory[CREEPS_MAX_COUNT];
 
     for (i = 0; i < maxCount[roleName] - 1; i++) {
 
