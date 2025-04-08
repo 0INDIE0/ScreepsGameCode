@@ -58,6 +58,10 @@ function createCreeps() {
         }
 
         const creepName = getCreepName(spawn.room, roleName, maxCount);
+        if (!creepName) {
+            return;
+        }
+        
         const body = getBodyForRole(needCreate);
         const memory = { role: needCreate, owner: spawn.room };
 
