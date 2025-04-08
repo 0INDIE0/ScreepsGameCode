@@ -1,6 +1,24 @@
 {
-  "dependencies": {
-    "@types/lodash": "^4.17.16",
-    "@types/screeps": "^3.3.8"
+  "name": "screepsgamecode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0INDIE0/ScreepsGameCode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0INDIE0/ScreepsGameCode/issues"
+  },
+  "homepage": "https://github.com/0INDIE0/ScreepsGameCode#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/screeps": "^3.3.8",
+    "typescript": "^5.8.3"
   }
 }
