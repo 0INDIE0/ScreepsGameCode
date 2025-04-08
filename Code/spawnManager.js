@@ -1,4 +1,4 @@
-let constants = require("constants");
+const { ROLE_HARVESTER, ROLE_BUILDER, ROLE_UPGRADER, CREEPS_MAX_COUNT, CREEPS_COUNT} = require('constants');
 
 module.exports = { run: spawnManager};
 
@@ -67,6 +67,7 @@ function createCreeps() {
 function getCreepName(room, roleName) {
 
     let creepName = room + roleName;
+    const maxCount = spawn.room.memory[constants.CREEPS_MAX_COUNT];
 
     for (i = 0; i < maxCount[roleName] - 1; i++) {
 
