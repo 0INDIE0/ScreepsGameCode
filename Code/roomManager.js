@@ -1,6 +1,6 @@
-module.exports = { run: Main };
+module.exports = { run: roomManager};
 
-function Main() {
+function roomManager() {
 
     const myRooms = getMyRooms();
     for (const roomName in myRooms) {
@@ -17,11 +17,14 @@ function getMyRooms() {
     const myRooms = [];
 
     for (let spawnName in Game.spawns) {
-    
-        if (myRooms.find(spawnName) == undefined) {
-            myRooms.push(Game.spawns[spawnName].room);
+        const room = Game.spawns[spawnName].room;
+        
+        // Проверяем, существует ли комната с таким именем в массиве
+        if (!myRooms.some(r => r.name === room.name)) {
+            myRooms.push(room);
         }
     }
+
     return myRooms
 }
 

@@ -1,8 +1,8 @@
 let constants = require("constants");
 
-module.exports = { run: main };
+module.exports = { run: spawnManager};
 
-function main() {
+function spawnManager() {
     
     if (Game.time % 15) {
         createCreeps();
