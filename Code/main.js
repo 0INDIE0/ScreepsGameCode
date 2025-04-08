@@ -8,8 +8,13 @@ let roomManager = require("roomManager");
 
 module.exports.loop = function () {
     
-    roomManager.run();
-    spawnManager.run();
+    try {
+        roomManager.run();
+        spawnManager.run();
+    }
+    catch (error) {
+        console.log("error:" + error);
+    }
     
 }
 

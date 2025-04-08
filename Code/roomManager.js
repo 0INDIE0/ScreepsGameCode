@@ -3,11 +3,9 @@ module.exports = { run: Main };
 function Main() {
 
     const myRooms = getMyRooms();
-    console.log(myRooms.size);
     for (const roomName in myRooms) {
-        console.log(roomName);
 
-        const room = Game.rooms[roomName];
+        const room = myRooms[roomName];
         setRoomCreepsMaxCount(room);
         setCreepsCount(room);
     }
@@ -16,19 +14,17 @@ function Main() {
 /** @return {Set<Room>}  */
 function getMyRooms() {
 
-    const myRooms = new Set();
+    const myRooms = [];
 
     for (let spawnName in Game.spawns) {
-        
-        myRooms.add(Game.spawns[spawnName].room.name);
+    
+        myRooms.add(Game.spawns[spawnName].room);
     }
     return myRooms
 }
 
 /** @param {Room} room */
 function setRoomCreepsMaxCount(room) {
-
-    console.log(room.name);
 
     if (mainModule.CREEPS_MAX_COUNT in room.memory) {
         return;
@@ -39,8 +35,6 @@ function setRoomCreepsMaxCount(room) {
         [mainModule.ROLE_BUILDER]: 2,
         [mainModule.ROLE_UPGRADER]: 2,
     };
-
-    console.log(room.memory[mainModule.CREEPS_MAX_COUNT]);
 }
 
 /** @param {Room} room - Комната */
