@@ -6,12 +6,14 @@ module.exports = { run: roomManager};
 */
 function roomManager() {
 
-    const myRooms = getMyRooms();
-    for (const roomName in myRooms) {
-
-        const room = myRooms[roomName];
-        setRoomCreepsMaxCount(room);
-        setCreepsCount(room);
+    if (Game.time % 50) {
+        const myRooms = getMyRooms();
+        for (const roomName in myRooms) {
+    
+            const room = myRooms[roomName];
+            setRoomCreepsMaxCount(room);
+            setCreepsCount(room);
+        }
     }
 }
 

@@ -6,7 +6,7 @@ module.exports = { run: spawnManager};
 */
 function spawnManager() {
     
-    if (Game.time % 15) {
+    if (Game.time % 25) {
         createCreeps();
     }
 }
@@ -67,7 +67,7 @@ function createCreeps() {
             return;
         }
 
-        console.log(`При создании крипа в комнате ${spawn.room.name} спавн ${spawn.name} при создании крипа ${creepName}`);
+        console.log(`При создании крипа в комнате ${spawn.room.name} спавн ${spawn.name} выдал ошибку ${result}`);
     }
 }
 
@@ -91,9 +91,6 @@ function getCreepName(room, roleName, maxCount) {
         }
     }
 }
-
-
-
 
 /** Проверяет возможность спавна
 * @param {StructureSpawn} spawn Спавн
