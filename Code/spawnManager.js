@@ -67,7 +67,7 @@ function createCreeps() {
             return;
         }
 
-        console.log(`При создании крипа в комнате ${spawn.room.name} спавн ${spawn.name} выдал ошибку ${result}`);
+        console.log(`При создании крипа ${creepName} с телом ${body} в комнате ${spawn.room.name} спавн ${spawn.name} выдал ошибку ${result}`);
     }
 }
 
