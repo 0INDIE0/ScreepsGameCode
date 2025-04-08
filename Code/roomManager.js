@@ -18,7 +18,9 @@ function getMyRooms() {
 
     for (let spawnName in Game.spawns) {
     
-        myRooms.add(Game.spawns[spawnName].room);
+        if (myRooms.find(spawnName) == undefined) {
+            myRooms.push(Game.spawns[spawnName].room);
+        }
     }
     return myRooms
 }
