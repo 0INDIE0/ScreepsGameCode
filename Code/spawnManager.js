@@ -2,6 +2,8 @@ const { ROLE_HARVESTER, ROLE_BUILDER, ROLE_UPGRADER, CREEPS_MAX_COUNT, CREEPS_CO
 
 module.exports = { run: spawnManager};
 
+/** Основной метод модуля. Контролирует спавн крипов
+*/
 function spawnManager() {
     
     if (Game.time % 15) {
@@ -9,6 +11,10 @@ function spawnManager() {
     }
 }
 
+/** Возвращает тело для роли
+* @param {string} role Роль
+* @returns {string[]} Тело крипа
+*/
 function getBodyForRole(role) {
     // Возвращаем части тела в зависимости от роли
     switch (role) {
@@ -23,6 +29,8 @@ function getBodyForRole(role) {
     }
 }
 
+/** Глобальное событие создания крипов
+*/
 function createCreeps() {
 
     for (const spawnName in Game.spawns) {
@@ -49,7 +57,7 @@ function createCreeps() {
             return;
         }
 
-        const creepName = getCreepName(spawn.room, roleName);
+        const creepName = getCreepName(spawn.room, roleName, maxCount);
         const body = getBodyForRole(needCreate);
         const memory = { role: needCreate, owner: spawn.room };
 
@@ -63,11 +71,15 @@ function createCreeps() {
     }
 }
 
-/** @param {Room} room - Комната */
-function getCreepName(room, roleName) {
+/** Генерирует имя для крипа
+* @param {Room} room Комната 
+* @param {string} roleName Имя роли крипа
+* @param {int} maxCount Количество крипов данной роли
+* @returns {string} Имя крипа
+*/
+function getCreepName(room, roleName, maxCount) {
 
     let creepName = room + roleName;
-    const maxCount = spawn.room.memory[CREEPS_MAX_COUNT];
 
     for (i = 0; i < maxCount[roleName] - 1; i++) {
 
@@ -80,6 +92,13 @@ function getCreepName(room, roleName) {
     }
 }
 
+
+
+
+/** Проверяет возможность спавна
+* @param {StructureSpawn} spawn Спавн
+* @returns {boolean} Можно спавнить
+*/
 function canSpawn(spawn) {
 
     if (spawn.spawning || !spawn.isActive()) {
