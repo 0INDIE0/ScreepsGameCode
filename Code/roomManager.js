@@ -2,6 +2,8 @@ const { ROLE_HARVESTER, ROLE_BUILDER, ROLE_UPGRADER, CREEPS_MAX_COUNT, CREEPS_CO
 
 module.exports = { run: roomManager};
 
+/** Основной метод модуля. Контролирует работу комнат
+*/
 function roomManager() {
 
     const myRooms = getMyRooms();
@@ -13,7 +15,9 @@ function roomManager() {
     }
 }
 
-/** @return {Set<Room>}  */
+/** Получает комнаты под вашим контролем
+* @return {Room[]} Возвращает ваши комнаты 
+*/
 function getMyRooms() {
 
     const myRooms = [];
@@ -30,7 +34,9 @@ function getMyRooms() {
     return myRooms
 }
 
-/** @param {Room} room */
+/** Устанавливает в памяти максимальное (необходимое) число крипов для комнаты
+* @param {Room} room 
+*/
 function setRoomCreepsMaxCount(room) {
 
     if (CREEPS_MAX_COUNT in room.memory) {
@@ -44,7 +50,9 @@ function setRoomCreepsMaxCount(room) {
     };
 }
 
-/** @param {Room} room - Комната */
+/** Устанавливает в памяти текущее число крипов для комнаты
+ * @param {Room} room - Комната 
+*/
 function setCreepsCount(room) {
 
     roomCreeps = _.find(Game.creeps, (creep) => creep.memory.owner === room.name);
