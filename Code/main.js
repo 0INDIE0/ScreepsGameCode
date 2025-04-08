@@ -13,7 +13,7 @@ module.exports.loop = function () {
         spawnManager.run();
     }
     catch (error) {
-        JSON.stringify(error);
+        console.log(JSON.stringify(error));
     }
 }
 
